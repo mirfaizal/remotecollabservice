@@ -1,0 +1,18 @@
+s3:
+  uploadbucket: s3-bucket-upload
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: remotecollabapp
+    show-sql: true
+    locations: classpath:db/callback, classpath:db/migration/postgres
+  flyway:
+    baselineOnMigrate: true
+    baselineVersion: .9
+server:
+  port: 8099
+logging:
+  level:
+    com.edu.remotecollab.service: DEBUG
+    org.springframework.security: DEBUG

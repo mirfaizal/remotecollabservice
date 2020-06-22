@@ -1,0 +1,17 @@
+s3:
+  uploadbucket: document-service-uploaddocs-963166549396-prod
+spring:
+  flyway:
+    url: jdbc:postgresql://localhost:5432/remotecollab
+    username: remotecollabapp
+    password: remotecollabapp
+    locations: classpath:db/callback, classpath:db/migration/postgres
+server:
+  ssl:
+    key-store: classpath:keystore.jks
+    key-store-password: secret
+    key-password: password
+logging:
+  level:
+    com.edu.remotecollab.service: ERROR
+    org.spring.security.web: WARN

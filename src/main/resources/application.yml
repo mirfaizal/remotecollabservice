@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  servlet:
+    multipart:
+      max-file-size: 75MB
+      max-request-size: 75MB
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+server:
+  compression:
+    enabled: true
+    mime-types: application/json,application/javascript,application/xml,text/html,text/xml,text/plain
+  port: 8443
+file-size:
+  upload-doc: 3000000

@@ -1,0 +1,50 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "title" : "DocumentInfoEntity",
+  "description" : "DocumentInfoEntity object",
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "description" : "unique uuid",
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "fileExtension" : {
+      "description" : "file extension",
+      "type" : "string",
+      "enum":["gif", "jpg", "pdf", "ppt", "pptx", "tif", "tiff", "xls", "xlsx", "doc", "docx"]
+    },
+    "fileName" : {
+      "description" : "file name",
+      "type" : "string"
+    },
+    "username" : {
+      "description" : "username",
+      "type" : "string"
+    },
+    "additionalInfo" : {
+      "type" : "object",
+      "properties" : {
+        "educationType" : {
+          "description" : "The type of education",
+          "type" : "string"
+        },
+        "firstName": {
+          "description" : "The first name of the person who uploaded the document",
+          "type" : "string"
+        },
+        "lastName": {
+          "description" : "The last name of the person who uploaded the document",
+          "type" : "string"
+        },
+        "userRole": {
+          "description" : "The role of the user who uploaded the document",
+          "type" : "string"
+        }
+      },
+      "required": [ "educationType", "firstName", "lastName", "userRole" ]
+    }
+  },
+  "required": [ "fileExtension", "fileName", "username", "additionalInfo" ]
+}
+
