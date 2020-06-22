@@ -35,8 +35,8 @@ run `psql -U remotecollabapp -f afterMigrate_grants.sql remotecollab;`
 Step 11:
 log back into postgres as remotecollabapp, connect to the remotecollab and insert a record into your new table with the following 
 ```
-psql postgres -U mlpdocapp
-\c docservice
+psql postgres -U remotecollabapp
+\c remotecollab
 INSERT INTO document_metadata (bucketid, filename, fileextension, username, createddatetime, additionalinfo) VALUES('buckettest', 'failedDoc1', 'pdf', 'saamiya.shaikh', '2017-03-14', '{"educationType":"Grade 1 Math","status":"s3-bucket-uploaded","firstName":"MyFirstName","lastName":"MyLastName","userRole":"admin"}');
 ```
 the above line can be edited and rerun to upload multiple records for testing. Or you can create a file with multiple inserts defined, and run the following
