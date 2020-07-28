@@ -4,14 +4,14 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: remotecollabapp
+    password: Test1234
     show-sql: true
     locations: classpath:db/callback, classpath:db/migration/postgres
   flyway:
     baselineOnMigrate: true
     baselineVersion: .9
 server:
-  port: 8099
+  port: 8080
 logging:
   level:
     com.edu.remotecollab.service: DEBUG

@@ -2,9 +2,9 @@ s3:
   uploadbucket: document-service-uploaddocs-963166549396-prod
 spring:
   flyway:
-    url: jdbc:postgresql://localhost:5432/remotecollab
-    username: remotecollabapp
-    password: remotecollabapp
+    url: jdbc:postgresql://0.0.0.0:5432/postgres
+    username: postgres
+    password: Test1234
     locations: classpath:db/callback, classpath:db/migration/postgres
 server:
   ssl:

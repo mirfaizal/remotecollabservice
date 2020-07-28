@@ -1,0 +1,5 @@
+s3:
+  uploadbucket: s3-bucket-upload
+spring:
+  flyway:
+    locations: classpath:db/migration/postgres

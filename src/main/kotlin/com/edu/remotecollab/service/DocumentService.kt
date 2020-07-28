@@ -85,16 +85,21 @@ class DocumentService(private var documentInfoRepository: DocumentInfoRepository
 
     @Throws(NotFoundException::class)
     fun getDocumentContentById(uuid: String): Pair<InputStream, String> {
-        val documentEntity = documentInfoRepository.findById(UUID.fromString(uuid))
+        try {
+            val documentEntity = documentInfoRepository.findById(UUID.fromString(uuid))
 
-        if (documentEntity.isPresent) {
-            val s3Object = s3Service.getObject(uuid, uploadbucket)
-            val entity = documentEntity.get()
-            val fileName = utilities.stripNonAlphaNumeric(entity.fileName)
-            return Pair(s3Object.objectContent, "$fileName.${entity.fileExtension}")
-        } else {
-            log.error("Resource not found for uuid $uuid")
-            throw NotFoundException("Resource not found")
+            if (documentEntity.isPresent) {
+                val s3Object = s3Service.getObject(uuid, uploadbucket)
+                val entity = documentEntity.get()
+                val fileName = utilities.stripNonAlphaNumeric(entity.fileName)
+                return Pair(s3Object.objectContent, "$fileName.${entity.fileExtension}")
+            } else {
+                log.error("Resource not found for uuid $uuid")
+                throw NotFoundException("Resource not found")
+            }
+        }catch (e: Exception) {
+            log.error("Error deleting $uuid from database.", e)
+            throw e
         }
     }
 

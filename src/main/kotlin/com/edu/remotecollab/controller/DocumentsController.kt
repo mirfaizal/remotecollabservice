@@ -26,6 +26,15 @@ import java.util.UUID
 class DocumentsController(private val service : DocumentService) {
     private final val log = LoggerFactory.getLogger(this.javaClass.name)!!
 
+    @GetMapping("/hello")
+    fun hello(): ResponseEntity<String> {
+        return try {
+            ResponseEntity.ok("Hello World")
+        } catch (e: NotFoundException) {
+            ResponseEntity(HttpStatus.NOT_FOUND)
+        }
+    }
+
     @PostMapping
     fun uploadToS3(@RequestParam file: MultipartFile, @RequestParam metadata: String, @RequestParam clientIp: String):
         ResponseEntity<UUID> {
