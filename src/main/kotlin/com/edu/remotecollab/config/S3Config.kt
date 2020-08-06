@@ -13,7 +13,7 @@ class S3Config {
     @Bean
     fun amazonS3Client(): AmazonS3Client {
         return AmazonS3ClientBuilder.standard()
-                .withCredentials(DefaultAWSCredentialsProviderChain()).withRegion(Regions.DEFAULT_REGION)
+                .withCredentials(DefaultAWSCredentialsProviderChain()).withRegion(Regions.US_EAST_1)
                 .build() as AmazonS3Client
     }
 }

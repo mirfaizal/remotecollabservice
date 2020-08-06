@@ -12,7 +12,7 @@
     "fileExtension" : {
       "description" : "file extension",
       "type" : "string",
-      "enum":["gif", "jpg", "pdf", "ppt", "pptx", "tif", "tiff", "xls", "xlsx", "doc", "docx"]
+      "enum":["gif", "jpg", "pdf", "ppt", "pptx", "tif", "tiff", "xls", "xlsx", "doc", "docx", "txt", "md"]
     },
     "fileName" : {
       "description" : "file name",
